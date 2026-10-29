@@ -39,7 +39,7 @@ Grab the latest binary for your OS from the
 
 | OS | Asset | Notes |
 |---|---|---|
-| Linux | `mahsang-linux-amd64.tar.gz` | run the binary |
+| Linux | `mahsang-linux-amd64.tar.gz` <br> `mahsang-linux-amd64.deb` | run binary or install via `sudo dpkg -i` |
 | Windows | `mahsang-windows-amd64.zip` | keep `wintun.dll` next to the exe |
 | macOS | `mahsang-macos-arm64.tar.gz` | Apple Silicon; first launch: right-click → Open (unsigned) |
 

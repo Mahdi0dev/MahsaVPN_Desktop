@@ -53,6 +53,19 @@ jobs:
         if: runner.os != 'Windows'
         run: tar -czf "${{ matrix.asset }}" mahsang
 
+      - name: Package .deb (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME:-0.1.0}"
+          ./build-deb.sh "$TAG_VERSION" mahsang mahsang-linux-amd64.deb
+
+      - name: Upload .deb Artifact (Linux)
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mahsang-linux-amd64.deb
+          path: mahsang-linux-amd64.deb
+
       # The TUN device on Windows needs wintun.dll next to the exe, so the
       # Windows asset is a zip of both (redistribution is permitted by the
       # Wintun prebuilt-binaries license).
@@ -84,3 +97,4 @@ jobs:
           files: |
             mahsang-*.tar.gz
             mahsang-*.zip
+            mahsang-*.deb
